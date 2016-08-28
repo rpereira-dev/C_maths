@@ -1,16 +1,10 @@
 #ifndef VEC3_H
 # define VEC3_H
 
-# include "common.h"
-
-/**
-*	Implementation by PEREIRA Romain.
-*
-*	N.B:
-*		- When a 't_vec3 * dst' parameter is required, it mean that the result will
-*		  be stored at the 'dst' address
-*		  If 'dst' is NULL, then a new vec3 is allocated and returned.
-*/
+# include <math.h>
+# include <stdlib.h>
+# include <string.h>
+# include <stdio.h>
 
 typedef struct	s_vec3
 {
@@ -47,20 +41,20 @@ t_vec3 * vec3_set(t_vec3 * dst, float x, float y, float z);
 t_vec3 * vec3_set3(t_vec3 * dst, t_vec3 * vec);
 
 /** add two vec3 */
-t_vec3 * vec3_add(t_vec3 * dst, t_vec3 * a, t_vec3 * b);
+t_vec3 * vec3_add(t_vec3 * dst, t_vec3 * left, t_vec3 * right);
 
 /** sub two vec3 */
-t_vec3 * vec3_sub(t_vec3 * dst, t_vec3 * a, t_vec3 * b);
+t_vec3 * vec3_sub(t_vec3 * dst, t_vec3 * left, t_vec3 * right);
 
 /** mult the vec3 by the given scalar */
-t_vec3 * vec3_mult(t_vec3 * dst, t_vec3 * a, float scalar);
-t_vec3 * vec3_mult3(t_vec3 * dst, t_vec3 * a, t_vec3 * b);
+t_vec3 * vec3_mult(t_vec3 * dst, t_vec3 * vec, float scalar);
+t_vec3 * vec3_mult3(t_vec3 * dst, t_vec3 * left, t_vec3 * right);
 
 /** cross product */
-t_vec3 * vec3_cross(t_vec3 * dst, t_vec3 * a, t_vec3 * b);
+t_vec3 * vec3_cross(t_vec3 * dst, t_vec3 * left, t_vec3 * right);
 
 /** scale product */
-float vec3_dot_product(t_vec3 * a, t_vec3 * b);
+float vec3_dot_product(t_vec3 * left, t_vec3 * right);
 
 /** length */
 float vec3_length_squared(t_vec3 * vec);
@@ -70,16 +64,17 @@ float vec3_length(t_vec3 * vec);
 t_vec3 * vec3_negate(t_vec3 * dst, t_vec3 * src);
 
 /** angle between two vec */
-float vec3_angle(t_vec3 * a, t_vec3 * b);
+float vec3_angle(t_vec3 * left, t_vec3 * right);
 
 /** mix the two vectors */
-t_vec3 * vec3_mix(t_vec3 * dst, t_vec3 * a, t_vec3 * b, float ratio);
+t_vec3 * vec3_mix(t_vec3 * dst, t_vec3 * left, t_vec3 * right, float ratio);
 
 /** comparison */
-int vec3_equals(t_vec3 * a, t_vec3 * b);
+int vec3_equals(t_vec3 * left, t_vec3 * right);
+
 
 /** round vec3 */
-t_vec3 * vec3_round(t_vec3 * dst, t_vec3 * vec, float decimals);
+t_vec3 * vec3_round(t_vec3 * dst, t_vec3 * vec, int decimals);
 
 /** to string: return a string allocated with malloc() */
 char * vec3_str(t_vec3 * vec);

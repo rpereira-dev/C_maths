@@ -1,7 +1,9 @@
 #ifndef MAT4_H
 # define MAT4_H
 
-# include "common.h"
+# include <math.h>
+# include <stdlib.h>
+# include <string.h>
 # include "vec3.h"
 # include "vec4.h"
 
@@ -31,7 +33,7 @@ typedef struct	s_mat4 {
 t_mat4 * mat4_new(void);
 
 /** delete the given matrix */
-t_mat4 * mat4_delete(void);
+void mat4_delete(t_mat4 * mat);
 
 /** copy */
 t_mat4 * mat4_copy(t_mat4 * dst, t_mat4 * src);
@@ -49,10 +51,11 @@ t_mat4 * mat4_transpose(t_mat4 * dst, t_mat4 * src);
 t_mat4 * mat4_scale(t_mat4 * dst, t_mat4 * mat, float f);
 
 /** translate */
-t_mat4 * mat4_translate(t_mat4 * dst, t_mat4 * mat, t_vec4 * translate);
+t_mat4 * mat4_translate(t_mat4 * dst, t_mat4 * src, float tx, float ty, float tz);
+t_mat4 * mat4_translate3(t_mat4 * dst, t_mat4 * src, t_vec3 * translate);
 
 /** rotate */
-t_mat4 * mat4_rotate(t_mat4 * dst, t_mat4 * src, t_vec3 * axis, t_vec3 * rot);
+t_mat4 * mat4_rotate(t_mat4 * dst, t_mat4 * src, float angle, t_vec3 * axis);
 t_mat4 * mat4_rotateX(t_mat4 * dst, t_mat4 * src, float angle);
 t_mat4 * mat4_rotateY(t_mat4 * dst, t_mat4 * src, float angle);
 t_mat4 * mat4_rotateZ(t_mat4 * dst, t_mat4 * src, float angle);
