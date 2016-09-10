@@ -111,6 +111,24 @@ float vec4_length(t_vec4 * vec) {
 	return ((float)sqrt(vec4_length_squared(vec)));
 }
 
+/** normalize */
+t_vec4 * vec4_normalize(t_vec4 * dst, t_vec4 * vec) {
+
+	if (dst == NULL) {
+		if ((dst = vec4_new()) == NULL) {
+			return (NULL);
+		}
+	}
+
+	float norm = 1 / vec4_length(vec);
+	dst->x = vec->x * norm;
+	dst->y = vec->y * norm;
+	dst->z = vec->z * norm;
+	dst->w = vec->w * norm;
+	return (dst);
+}
+
+
 /** negate */
 t_vec4 * vec4_negate(t_vec4 * dst, t_vec4 * src) {
 	if (dst == NULL) {

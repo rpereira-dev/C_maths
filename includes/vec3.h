@@ -60,6 +60,9 @@ float vec3_dot_product(t_vec3 * left, t_vec3 * right);
 float vec3_length_squared(t_vec3 * vec);
 float vec3_length(t_vec3 * vec);
 
+/** normalize */
+t_vec3 * vec3_normalize(t_vec3 * dst, t_vec3 * vec);
+
 /** negate */
 t_vec3 * vec3_negate(t_vec3 * dst, t_vec3 * src);
 

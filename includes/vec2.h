@@ -49,6 +49,9 @@ float vec2_dot_product(t_vec2 * left, t_vec2 * right);
 float vec2_length_squared(t_vec2 * vec);
 float vec2_length(t_vec2 * vec);
 
+/** normalize */
+t_vec2 * vec2_normalize(t_vec2 * dst, t_vec2 * vec);
+
 /** negate */
 t_vec2 * vec2_negate(t_vec2 * dst, t_vec2 * src);
 

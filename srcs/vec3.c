@@ -120,6 +120,22 @@ float vec3_length(t_vec3 * vec) {
 	return ((float)sqrt(vec3_length_squared(vec)));
 }
 
+/** normalize */
+t_vec3 * vec3_normalize(t_vec3 * dst, t_vec3 * vec) {
+
+	if (dst == NULL) {
+		if ((dst = vec3_new()) == NULL) {
+			return (NULL);
+		}
+	}
+
+	float norm = 1 / vec3_length(vec);
+	dst->x = vec->x * norm;
+	dst->y = vec->y * norm;
+	dst->z = vec->z * norm;
+	return (dst);
+}
+
 /** negate */
 t_vec3 * vec3_negate(t_vec3 * dst, t_vec3 * src) {
 	if (dst == NULL) {
