@@ -1,30 +1,39 @@
-#include "vec3.h"
+/**
+ *  This file is part of https://github.com/toss-dev/C_maths
+ *
+ *  It is under a GNU GENERAL PUBLIC LICENSE
+ *
+ *  This library is still in development, so please, if you find any issue, let me know about it on github.com
+ *  PEREIRA Romain
+ */
 
-/** create a new vec3 */
-t_vec3 * vec3_new(void) {
-	return ((t_vec3 *)malloc(sizeof(t_vec3)));
+#include "vec3f.h"
+
+/** create a new vec3f */
+t_vec3f * vec3f_new(void) {
+	return ((t_vec3f *)malloc(sizeof(t_vec3f)));
 }
 
-/** delete the vec3 */
-void vec3_delete(t_vec3 * vec) {
+/** delete the vec3f */
+void vec3f_delete(t_vec3f * vec) {
 	free(vec);
 }
 
-/** set the vec3 to 0 */
-t_vec3 * vec3_zero(t_vec3 * dst) {
+/** set the vec3f to 0 */
+t_vec3f * vec3f_zero(t_vec3f * dst) {
 	if (dst == NULL) {
-		if ((dst = vec3_new()) == NULL) {
+		if ((dst = vec3f_new()) == NULL) {
 			return (NULL);
 		}
 	}
-	memset(dst, 0, sizeof(t_vec3));
+	memset(dst, 0, sizeof(t_vec3f));
 	return (dst);
 }
 
-/** set the vec3 values */
-t_vec3 * vec3_set(t_vec3 * dst, float x, float y, float z) {
+/** set the vec3f values */
+t_vec3f * vec3f_set(t_vec3f * dst, float x, float y, float z) {
 	if (dst == NULL) {
-		if ((dst = vec3_new()) == NULL) {
+		if ((dst = vec3f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -34,17 +43,17 @@ t_vec3 * vec3_set(t_vec3 * dst, float x, float y, float z) {
 	return (dst);
 }
 
-t_vec3 * vec3_set3(t_vec3 * dst, t_vec3 * vec) {
+t_vec3f * vec3f_set3(t_vec3f * dst, t_vec3f * vec) {
 	if (dst == vec) {
 		return (dst);
 	}
-	return (vec3_set(dst, vec->x, vec->y, vec->z));
+	return (vec3f_set(dst, vec->x, vec->y, vec->z));
 }
 
-/** add two vec3 */
-t_vec3 * vec3_add(t_vec3 * dst, t_vec3 * left, t_vec3 * right) {
+/** add two vec3f */
+t_vec3f * vec3f_add(t_vec3f * dst, t_vec3f * left, t_vec3f * right) {
 	if (dst == NULL) {
-		if ((dst = vec3_new()) == NULL) {
+		if ((dst = vec3f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -54,10 +63,10 @@ t_vec3 * vec3_add(t_vec3 * dst, t_vec3 * left, t_vec3 * right) {
 	return (dst);
 }
 
-/** sub two vec3 */
-t_vec3 * vec3_sub(t_vec3 * dst, t_vec3 * left, t_vec3 * right) {
+/** sub two vec3f */
+t_vec3f * vec3f_sub(t_vec3f * dst, t_vec3f * left, t_vec3f * right) {
 	if (dst == NULL) {
-		if ((dst = vec3_new()) == NULL) {
+		if ((dst = vec3f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -67,10 +76,10 @@ t_vec3 * vec3_sub(t_vec3 * dst, t_vec3 * left, t_vec3 * right) {
 	return (dst);
 }
 
-/** mult the vec3 by the given scalar */
-t_vec3 * vec3_mult(t_vec3 * dst, t_vec3 * vec, float scalar) {
+/** mult the vec3f by the given scalar */
+t_vec3f * vec3f_mult(t_vec3f * dst, t_vec3f * vec, float scalar) {
 	if (dst == NULL) {
-		if ((dst = vec3_new()) == NULL) {
+		if ((dst = vec3f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -80,9 +89,9 @@ t_vec3 * vec3_mult(t_vec3 * dst, t_vec3 * vec, float scalar) {
 	return (dst);
 }
 
-t_vec3 * vec3_mult3(t_vec3 * dst, t_vec3 * left, t_vec3 * right) {
+t_vec3f * vec3f_mult3(t_vec3f * dst, t_vec3f * left, t_vec3f * right) {
 	if (dst == NULL) {
-		if ((dst = vec3_new()) == NULL) {
+		if ((dst = vec3f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -93,9 +102,9 @@ t_vec3 * vec3_mult3(t_vec3 * dst, t_vec3 * left, t_vec3 * right) {
 }
 
 /** cross product */
-t_vec3 * vec3_cross(t_vec3 * dst, t_vec3 * left, t_vec3 * right) {
+t_vec3f * vec3f_cross(t_vec3f * dst, t_vec3f * left, t_vec3f * right) {
 	if (dst == NULL) {
-		if ((dst = vec3_new()) == NULL) {
+		if ((dst = vec3f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -107,29 +116,29 @@ t_vec3 * vec3_cross(t_vec3 * dst, t_vec3 * left, t_vec3 * right) {
 }
 
 /** scale product */
-float vec3_dot_product(t_vec3 * left, t_vec3 * right) {
+float vec3f_dot_product(t_vec3f * left, t_vec3f * right) {
 	return (left->x * right->x + left->y * right->y + left->z * right->z);
 }
 
 /** length */
-float vec3_length_squared(t_vec3 * vec) {
-	return (vec3_dot_product(vec, vec));
+float vec3f_length_squared(t_vec3f * vec) {
+	return (vec3f_dot_product(vec, vec));
 }
 
-float vec3_length(t_vec3 * vec) {
-	return ((float)sqrt(vec3_length_squared(vec)));
+float vec3f_length(t_vec3f * vec) {
+	return ((float)sqrt(vec3f_length_squared(vec)));
 }
 
 /** normalize */
-t_vec3 * vec3_normalize(t_vec3 * dst, t_vec3 * vec) {
+t_vec3f * vec3f_normalize(t_vec3f * dst, t_vec3f * vec) {
 
 	if (dst == NULL) {
-		if ((dst = vec3_new()) == NULL) {
+		if ((dst = vec3f_new()) == NULL) {
 			return (NULL);
 		}
 	}
 
-	float norm = 1 / vec3_length(vec);
+	float norm = 1 / vec3f_length(vec);
 	dst->x = vec->x * norm;
 	dst->y = vec->y * norm;
 	dst->z = vec->z * norm;
@@ -137,9 +146,9 @@ t_vec3 * vec3_normalize(t_vec3 * dst, t_vec3 * vec) {
 }
 
 /** negate */
-t_vec3 * vec3_negate(t_vec3 * dst, t_vec3 * src) {
+t_vec3f * vec3f_negate(t_vec3f * dst, t_vec3f * src) {
 	if (dst == NULL) {
-		if ((dst = vec3_new()) == NULL) {
+		if ((dst = vec3f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -150,8 +159,8 @@ t_vec3 * vec3_negate(t_vec3 * dst, t_vec3 * src) {
 }
 
 /** angle between two vec */
-float vec3_angle(t_vec3 * left, t_vec3 * right) {
-	float dls = vec3_dot_product(left, right) / (vec3_length(left) * vec3_length(right));
+float vec3f_angle(t_vec3f * left, t_vec3f * right) {
+	float dls = vec3f_dot_product(left, right) / (vec3f_length(left) * vec3f_length(right));
 	if (dls < -1.0f) {
 		dls = -1.0f;
 	} else if (dls > 1.0f) {
@@ -161,10 +170,10 @@ float vec3_angle(t_vec3 * left, t_vec3 * right) {
 }
 
 /** mix the two vectors */
-t_vec3 * vec3_mix(t_vec3 * dst, t_vec3 * left, t_vec3 * right, float ratio) {
+t_vec3f * vec3f_mix(t_vec3f * dst, t_vec3f * left, t_vec3f * right, float ratio) {
 
 	if (dst == NULL) {
-		if ((dst = vec3_new()) == NULL) {
+		if ((dst = vec3f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -176,20 +185,20 @@ t_vec3 * vec3_mix(t_vec3 * dst, t_vec3 * left, t_vec3 * right, float ratio) {
 }
 
 /** comparison */
-int vec3_equals(t_vec3 * left, t_vec3 * right) {
+int vec3f_equals(t_vec3f * left, t_vec3f * right) {
 	return (left == right || (left->x == right->x && left->y == right->y && left->z == right->z));
 }
 
-/** round vec3 */
-t_vec3 * vec3_round(t_vec3 * dst, t_vec3 * vec, int decimals) {
+/** round vec3f */
+t_vec3f * vec3f_round(t_vec3f * dst, t_vec3f * vec, int decimals) {
 	static float powten[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
 
 	if (decimals < 0 || decimals >= 10) {
-		return (vec3_set3(dst, vec));
+		return (vec3f_set3(dst, vec));
 	}
 
 	if (dst == NULL) {
-		if ((dst = vec3_new()) == NULL) {
+		if ((dst = vec3f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -201,11 +210,11 @@ t_vec3 * vec3_round(t_vec3 * dst, t_vec3 * vec, int decimals) {
 }
 
 /** to string: return a string allocated with malloc() */
-char * vec3_str(t_vec3 * vec) {
+char * vec3f_str(t_vec3f * vec) {
 	if (vec == NULL) {
-		return (strdup("vec3(NULL)"));
+		return (strdup("vec3f(NULL)"));
 	}
 	char buffer[160];
-	sprintf(buffer, "vec3(%f ; %f ; %f)", vec->x, vec->y, vec->z);
+	sprintf(buffer, "vec3f(%f ; %f ; %f)", vec->x, vec->y, vec->z);
 	return (strdup(buffer));
 }

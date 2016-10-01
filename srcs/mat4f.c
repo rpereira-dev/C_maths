@@ -1,30 +1,39 @@
-#include "mat4.h"
+/**
+ *  This file is part of https://github.com/toss-dev/C_maths
+ *
+ *  It is under a GNU GENERAL PUBLIC LICENSE
+ *
+ *  This library is still in development, so please, if you find any issue, let me know about it on github.com
+ *  PEREIRA Romain
+ */
+
+#include "mat4f.h"
 
 /** create a new matrix */
-t_mat4 * mat4_new(void) {
-	return ((t_mat4*)malloc(sizeof(t_mat4)));
+t_mat4f * mat4f_new(void) {
+	return ((t_mat4f*)malloc(sizeof(t_mat4f)));
 }
 
 /** delete the given matrix */
-void mat4_delete(t_mat4 * mat) {
+void mat4f_delete(t_mat4f * mat) {
 	free(mat);
 }
 
 /** copy */
-t_mat4 * mat4_copy(t_mat4 * dst, t_mat4 * src) {
+t_mat4f * mat4f_copy(t_mat4f * dst, t_mat4f * src) {
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
-	memcpy(dst, src, sizeof(t_mat4));
+	memcpy(dst, src, sizeof(t_mat4f));
 	return (dst);
 }
 
 /** set identity */
-t_mat4 * mat4_identity(t_mat4 * dst) {
+t_mat4f * mat4f_identity(t_mat4f * dst) {
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -37,21 +46,21 @@ t_mat4 * mat4_identity(t_mat4 * dst) {
 }
 
 /** set to zero */
-t_mat4 * mat4_zero(t_mat4 * dst) {
+t_mat4f * mat4f_zero(t_mat4f * dst) {
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
-	memset(dst, 0, sizeof(t_mat4));
+	memset(dst, 0, sizeof(t_mat4f));
 	return (dst);
 }
 
 /** transpose */
-t_mat4 * mat4_transpose(t_mat4 * dst, t_mat4 * src) {
+t_mat4f * mat4f_transpose(t_mat4f * dst, t_mat4f * src) {
 
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -82,10 +91,10 @@ t_mat4 * mat4_transpose(t_mat4 * dst, t_mat4 * src) {
 }
 
 /** scale */
-t_mat4 * mat4_scale(t_mat4 * dst, t_mat4 * src, float scale) {
+t_mat4f * mat4f_scale(t_mat4f * dst, t_mat4f * src, float scale) {
 
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -100,10 +109,10 @@ t_mat4 * mat4_scale(t_mat4 * dst, t_mat4 * src, float scale) {
 	return (dst);
 }
 
-t_mat4 * mat4_scale3(t_mat4 * dst, t_mat4 * src, t_vec3 * scale) {
+t_mat4f * mat4f_scale3(t_mat4f * dst, t_mat4f * src, t_vec3f * scale) {
 
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -119,9 +128,9 @@ t_mat4 * mat4_scale3(t_mat4 * dst, t_mat4 * src, t_vec3 * scale) {
 }
 
 /** translate */
-t_mat4 * mat4_translate(t_mat4 * dst, t_mat4 * src, float tx, float ty, float tz) {
+t_mat4f * mat4f_translate(t_mat4f * dst, t_mat4f * src, float tx, float ty, float tz) {
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -133,15 +142,15 @@ t_mat4 * mat4_translate(t_mat4 * dst, t_mat4 * src, float tx, float ty, float tz
 	return (dst);
 }
 
-t_mat4 * mat4_translate3(t_mat4 * dst, t_mat4 * src, t_vec3 * translate) {
-	return (mat4_translate(dst, src, translate->x, translate->y, translate->z));
+t_mat4f * mat4f_translate3(t_mat4f * dst, t_mat4f * src, t_vec3f * translate) {
+	return (mat4f_translate(dst, src, translate->x, translate->y, translate->z));
 }
 
 /** rotate */
-t_mat4 * mat4_rotate(t_mat4 * dst, t_mat4 * src, float angle, t_vec3 * axis) {
+t_mat4f * mat4f_rotate(t_mat4f * dst, t_mat4f * src, float angle, t_vec3f * axis) {
 
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -191,10 +200,10 @@ t_mat4 * mat4_rotate(t_mat4 * dst, t_mat4 * src, float angle, t_vec3 * axis) {
 	return (dst);
 }
 
-t_mat4 * mat4_rotateX(t_mat4 * dst, t_mat4 * src, float angle) {
+t_mat4f * mat4f_rotateX(t_mat4f * dst, t_mat4f * src, float angle) {
 
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -225,10 +234,10 @@ t_mat4 * mat4_rotateX(t_mat4 * dst, t_mat4 * src, float angle) {
 	return (dst);
 }
 
-t_mat4 * mat4_rotateY(t_mat4 * dst, t_mat4 * src, float angle) {
+t_mat4f * mat4f_rotateY(t_mat4f * dst, t_mat4f * src, float angle) {
 
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -258,9 +267,9 @@ t_mat4 * mat4_rotateY(t_mat4 * dst, t_mat4 * src, float angle) {
 	return (dst);
 }
 
-t_mat4 * mat4_rotateZ(t_mat4 * dst, t_mat4 * src, float angle) {
+t_mat4f * mat4f_rotateZ(t_mat4f * dst, t_mat4f * src, float angle) {
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -290,34 +299,34 @@ t_mat4 * mat4_rotateZ(t_mat4 * dst, t_mat4 * src, float angle) {
 	return (dst);
 }
 
-t_mat4 * mat4_rotateXYZ(t_mat4 * dst, t_mat4 * src, t_vec3 * rot) {
+t_mat4f * mat4f_rotateXYZ(t_mat4f * dst, t_mat4f * src, t_vec3f * rot) {
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
 
-	mat4_rotateX(dst, src, rot->x);
-	mat4_rotateY(dst, src, rot->y);
-	mat4_rotateZ(dst, src, rot->z);
+	mat4f_rotateX(dst, src, rot->x);
+	mat4f_rotateY(dst, src, rot->y);
+	mat4f_rotateZ(dst, src, rot->z);
 	return (dst);
 }
 
 /** transformation matrix */
-t_mat4 * mat4_transformation(t_mat4 * dst, t_vec3 * translate, t_vec3 * rot, t_vec3 * scale) {
+t_mat4f * mat4f_transformation(t_mat4f * dst, t_vec3f * translate, t_vec3f * rot, t_vec3f * scale) {
 
-	if ((dst = mat4_identity(dst)) == NULL) {
+	if ((dst = mat4f_identity(dst)) == NULL) {
 		return (NULL);
 	}
 
-	mat4_translate3(dst, dst, translate);
-	mat4_rotateXYZ(dst, dst, rot);
-	mat4_scale3(dst, dst, scale);
+	mat4f_translate3(dst, dst, translate);
+	mat4f_rotateXYZ(dst, dst, rot);
+	mat4f_scale3(dst, dst, scale);
 	return (dst);
 }
 
 /** determinant */
-float mat4_determinant(t_mat4 * mat) {
+float mat4f_determinant(t_mat4f * mat) {
 
 	if (mat == NULL) {
 		return (0);
@@ -335,43 +344,43 @@ float mat4_determinant(t_mat4 * mat) {
 	return (d);
 }
 
-static float _mat4_determinant3x3(float t00, float t01, float t02, float t10, float t11, float t12, float t20, float t21, float t22) {
+static float _mat4f_determinant3x3(float t00, float t01, float t02, float t10, float t11, float t12, float t20, float t21, float t22) {
 	return (t00 * (t11 * t22 - t12 * t21) + t01 * (t12 * t20 - t10 * t22) + t02 * (t10 * t21 - t11 * t20));
 }
 
 /** invert */
-t_mat4 * mat4_invert(t_mat4 * dst, t_mat4 * src) {
+t_mat4f * mat4f_invert(t_mat4f * dst, t_mat4f * src) {
 
-	float determinant = mat4_determinant(src);
+	float determinant = mat4f_determinant(src);
 
 	if (determinant != 0) {
 		if (dst == NULL) {
-			if ((dst = mat4_new()) == NULL) {
+			if ((dst = mat4f_new()) == NULL) {
 				return (NULL);
 			}
 		}
 
 		float determinant_inv = 1.0f / determinant;
 
-		float t00 = _mat4_determinant3x3(src->m11, src->m12, src->m13, src->m21, src->m22, src->m23, src->m31, src->m32, src->m33);
-		float t01 = -_mat4_determinant3x3(src->m10, src->m12, src->m13, src->m20, src->m22, src->m23, src->m30, src->m32, src->m33);
-		float t02 = _mat4_determinant3x3(src->m10, src->m11, src->m13, src->m20, src->m21, src->m23, src->m30, src->m31, src->m33);
-		float t03 = -_mat4_determinant3x3(src->m10, src->m11, src->m12, src->m20, src->m21, src->m22, src->m30, src->m31, src->m32);
+		float t00 = _mat4f_determinant3x3(src->m11, src->m12, src->m13, src->m21, src->m22, src->m23, src->m31, src->m32, src->m33);
+		float t01 = -_mat4f_determinant3x3(src->m10, src->m12, src->m13, src->m20, src->m22, src->m23, src->m30, src->m32, src->m33);
+		float t02 = _mat4f_determinant3x3(src->m10, src->m11, src->m13, src->m20, src->m21, src->m23, src->m30, src->m31, src->m33);
+		float t03 = -_mat4f_determinant3x3(src->m10, src->m11, src->m12, src->m20, src->m21, src->m22, src->m30, src->m31, src->m32);
 
-		float t10 = -_mat4_determinant3x3(src->m01, src->m02, src->m03, src->m21, src->m22, src->m23, src->m31, src->m32, src->m33);
-		float t11 = _mat4_determinant3x3(src->m00, src->m02, src->m03, src->m20, src->m22, src->m23, src->m30, src->m32, src->m33);
-		float t12 = -_mat4_determinant3x3(src->m00, src->m01, src->m03, src->m20, src->m21, src->m23, src->m30, src->m31, src->m33);
-		float t13 = _mat4_determinant3x3(src->m00, src->m01, src->m02, src->m20, src->m21, src->m22, src->m30, src->m31, src->m32);
+		float t10 = -_mat4f_determinant3x3(src->m01, src->m02, src->m03, src->m21, src->m22, src->m23, src->m31, src->m32, src->m33);
+		float t11 = _mat4f_determinant3x3(src->m00, src->m02, src->m03, src->m20, src->m22, src->m23, src->m30, src->m32, src->m33);
+		float t12 = -_mat4f_determinant3x3(src->m00, src->m01, src->m03, src->m20, src->m21, src->m23, src->m30, src->m31, src->m33);
+		float t13 = _mat4f_determinant3x3(src->m00, src->m01, src->m02, src->m20, src->m21, src->m22, src->m30, src->m31, src->m32);
 
-		float t20 = _mat4_determinant3x3(src->m01, src->m02, src->m03, src->m11, src->m12, src->m13, src->m31, src->m32, src->m33);
-		float t21 = -_mat4_determinant3x3(src->m00, src->m02, src->m03, src->m10, src->m12, src->m13, src->m30, src->m32, src->m33);
-		float t22 = _mat4_determinant3x3(src->m00, src->m01, src->m03, src->m10, src->m11, src->m13, src->m30, src->m31, src->m33);
-		float t23 = -_mat4_determinant3x3(src->m00, src->m01, src->m02, src->m10, src->m11, src->m12, src->m30, src->m31, src->m32);
+		float t20 = _mat4f_determinant3x3(src->m01, src->m02, src->m03, src->m11, src->m12, src->m13, src->m31, src->m32, src->m33);
+		float t21 = -_mat4f_determinant3x3(src->m00, src->m02, src->m03, src->m10, src->m12, src->m13, src->m30, src->m32, src->m33);
+		float t22 = _mat4f_determinant3x3(src->m00, src->m01, src->m03, src->m10, src->m11, src->m13, src->m30, src->m31, src->m33);
+		float t23 = -_mat4f_determinant3x3(src->m00, src->m01, src->m02, src->m10, src->m11, src->m12, src->m30, src->m31, src->m32);
 
-		float t30 = -_mat4_determinant3x3(src->m01, src->m02, src->m03, src->m11, src->m12, src->m13, src->m21, src->m22, src->m23);
-		float t31 = _mat4_determinant3x3(src->m00, src->m02, src->m03, src->m10, src->m12, src->m13, src->m20, src->m22, src->m23);
-		float t32 = -_mat4_determinant3x3(src->m00, src->m01, src->m03, src->m10, src->m11, src->m13, src->m20, src->m21, src->m23);
-		float t33 = _mat4_determinant3x3(src->m00, src->m01, src->m02, src->m10, src->m11, src->m12, src->m20, src->m21, src->m22);
+		float t30 = -_mat4f_determinant3x3(src->m01, src->m02, src->m03, src->m11, src->m12, src->m13, src->m21, src->m22, src->m23);
+		float t31 = _mat4f_determinant3x3(src->m00, src->m02, src->m03, src->m10, src->m12, src->m13, src->m20, src->m22, src->m23);
+		float t32 = -_mat4f_determinant3x3(src->m00, src->m01, src->m03, src->m10, src->m11, src->m13, src->m20, src->m21, src->m23);
+		float t33 = _mat4f_determinant3x3(src->m00, src->m01, src->m02, src->m10, src->m11, src->m12, src->m20, src->m21, src->m22);
 
 		// transpose and divide by the determinant
 		dst->m00 = t00 * determinant_inv;
@@ -397,10 +406,10 @@ t_mat4 * mat4_invert(t_mat4 * dst, t_mat4 * src) {
 }
 
 /** mult */
-t_mat4 * mat4_mult(t_mat4 * dst, t_mat4 * left, t_mat4 * right) {
+t_mat4f * mat4f_mult(t_mat4f * dst, t_mat4f * left, t_mat4f * right) {
 
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -442,10 +451,10 @@ t_mat4 * mat4_mult(t_mat4 * dst, t_mat4 * left, t_mat4 * right) {
 	return (dst);
 }
 
-/** transform vec4 */
-t_vec4 * mat4_transform_vec4(t_vec4 * dst, t_mat4 * left, t_vec4 * right) {
+/** transform vec4f */
+t_vec4f * mat4f_transform_vec4f(t_vec4f * dst, t_mat4f * left, t_vec4f * right) {
 	if (dst == NULL) {
-		if ((dst = vec4_new()) == NULL) {
+		if ((dst = vec4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -466,9 +475,9 @@ t_vec4 * mat4_transform_vec4(t_vec4 * dst, t_mat4 * left, t_vec4 * right) {
 /** projections matrix bellow: */
 
 /** orthographic matrix */
-t_mat4 * mat4_orthographic(t_mat4 * dst, float left, float right, float bot, float top, float near, float far) {
+t_mat4f * mat4f_orthographic(t_mat4f * dst, float left, float right, float bot, float top, float near, float far) {
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
@@ -497,9 +506,9 @@ t_mat4 * mat4_orthographic(t_mat4 * dst, float left, float right, float bot, flo
 }
 
 /** perspective matrix */
-t_mat4 * mat4_perspective(t_mat4 * dst, float aspect, float fov, float near, float far) {
+t_mat4f * mat4f_perspective(t_mat4f * dst, float aspect, float fov, float near, float far) {
 	if (dst == NULL) {
-		if ((dst = mat4_new()) == NULL) {
+		if ((dst = mat4f_new()) == NULL) {
 			return (NULL);
 		}
 	}
