@@ -93,4 +93,7 @@ t_mat4f * mat4f_orthographic(t_mat4f * dst, float left, float right, float bot, 
 /** perspective matrix */
 t_mat4f * mat4f_perspective(t_mat4f * dst, float aspect, float fov, float near, float far);
 
+/** to string: return a string allocated with malloc() */
+char * mat4f_str(t_mat4f * mat);
+
 #endif

@@ -539,3 +539,27 @@ t_mat4f * mat4f_perspective(t_mat4f * dst, float aspect, float fov, float near, 
 
 	return (dst);
 }
+
+/** to string: return a string allocated with malloc() */
+char * mat4f_str(t_mat4f * mat) {
+	if (mat == NULL) {
+		return (strdup("mat4f(NULL)"));
+	}
+	char buffer[1024];
+	sprintf(buffer, "mat4f(%.4f ; %.4f ; %.4f ; %.4f\n      %.4f ; %.4f ; %.4f ; %.4f\n      %.4f ; %.4f ; %.4f ; %.4f\n      %.4f ; %.4f ; %.4f ; %.4f)",
+		mat->m00, mat->m01, mat->m02, mat->m03, mat->m10, mat->m11, mat->m12, mat->m13, mat->m20, mat->m21, mat->m22, mat->m23, mat->m30, mat->m31, mat->m32, mat->m33);
+	return (strdup(buffer));
+}
+
+/*
+int main() {
+
+	t_mat4f mat;
+
+	mat4f_identity(&mat);
+	mat4f_scale(&mat, &mat, 1 / 7.0f);
+	char * str = mat4f_str(&mat);
+	puts(str);
+	free(str);
+	return (0);
+}*/

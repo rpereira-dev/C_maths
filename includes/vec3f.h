@@ -84,7 +84,6 @@ t_vec3f * vec3f_mix(t_vec3f * dst, t_vec3f * left, t_vec3f * right, float ratio)
 /** comparison */
 int vec3f_equals(t_vec3f * left, t_vec3f * right);
 
-
 /** round vec3f */
 t_vec3f * vec3f_round(t_vec3f * dst, t_vec3f * vec, int decimals);
 
