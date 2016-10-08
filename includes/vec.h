@@ -14,4 +14,8 @@
 # include "veci.h"
 # include "matf.h"
 
+# ifndef DEG_TO_RAD
+#  define DEG_TO_RAD(X) (X * 0.01745329251f)
+# endif
+
 #endif
