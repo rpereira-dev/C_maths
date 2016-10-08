@@ -547,7 +547,7 @@ char * mat4f_str(t_mat4f * mat) {
 	}
 	char buffer[1024];
 	sprintf(buffer, "mat4f(%.4f ; %.4f ; %.4f ; %.4f\n      %.4f ; %.4f ; %.4f ; %.4f\n      %.4f ; %.4f ; %.4f ; %.4f\n      %.4f ; %.4f ; %.4f ; %.4f)",
-		mat->m00, mat->m01, mat->m02, mat->m03, mat->m10, mat->m11, mat->m12, mat->m13, mat->m20, mat->m21, mat->m22, mat->m23, mat->m30, mat->m31, mat->m32, mat->m33);
+		mat->m00, mat->m10, mat->m20, mat->m30, mat->m01, mat->m11, mat->m21, mat->m31, mat->m02, mat->m12, mat->m22, mat->m32, mat->m03, mat->m13, mat->m23, mat->m33);
 	return (strdup(buffer));
 }
 
