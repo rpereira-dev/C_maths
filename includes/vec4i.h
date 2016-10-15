@@ -83,6 +83,9 @@ t_vec4i * vec4i_mix(t_vec4i * dst, t_vec4i * left, t_vec4i * right, int ratio);
 int vec4i_equals(t_vec4i * left, t_vec4i * right);
 int vec4i_nequals(t_vec4i * left, t_vec4i * right);
 
+/** hash */
+int vec4i_hash(t_vec4i * vec);
+
 /** to string: return a string allocated with malloc() */
 char * vec4i_str(t_vec4i * vec);
 

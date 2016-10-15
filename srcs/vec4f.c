@@ -188,6 +188,11 @@ int vec4f_nequals(t_vec4f * left, t_vec4f * right) {
 	return (!vec4f_equals(left, right));
 }
 
+/** hash */
+int vec4f_hash(t_vec4f * vec) {
+	return ((int)(vec->x * 73856093.0f) ^ (int)(vec->y * 19349663.0f) ^ (int)(vec->z * 83492791.0f) ^ (int)(vec->w * 3539857.0f));
+}
+
 /** round vec4f */
 t_vec4f * vec4f_round(t_vec4f * dst, t_vec4f * vec, int decimals) {
 	static float powten[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};

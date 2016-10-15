@@ -73,6 +73,9 @@ t_vec2i * vec2i_mix(t_vec2i * dst, t_vec2i * left, t_vec2i * right, int ratio);
 int vec2i_equals(t_vec2i * left, t_vec2i * right);
 int vec2i_nequals(t_vec2i * left, t_vec2i * right);
 
+/** hash */
+int vec2i_hash(t_vec2i * vec);
+
 /** to string: return a string allocated with malloc() */
 char * vec2i_str(t_vec2i * vec);
 

@@ -188,6 +188,11 @@ int vec4i_nequals(t_vec4i * left, t_vec4i * right) {
 	return (!vec4i_equals(left, right));
 }
 
+/** hash */
+int vec4i_hash(t_vec4i * vec) {
+	return ((vec->x * 73856093) ^ (vec->y * 19349663) ^ (vec->z * 83492791) ^ (vec->w * 3539857));
+}
+
 /** to string: return a string allocated with malloc() */
 char * vec4i_str(t_vec4i * vec) {
 	if (vec == NULL) {

@@ -193,6 +193,10 @@ int vec3f_nequals(t_vec3f * left, t_vec3f * right) {
 	return (!vec3f_equals(left, right));
 }
 
+/** hash */
+int vec3f_hash(t_vec3f * vec) {
+	return ((int)(vec->x * 73856093.0f) ^ (int)(vec->y * 19349663.0f) ^ (int)(vec->z * 83492791.0f));
+}
 
 /** round vec3f */
 t_vec3f * vec3f_round(t_vec3f * dst, t_vec3f * vec, int decimals) {

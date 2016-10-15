@@ -73,6 +73,9 @@ t_vec2f * vec2f_mix(t_vec2f * dst, t_vec2f * left, t_vec2f * right, float ratio)
 int vec2f_equals(t_vec2f * left, t_vec2f * right);
 int vec2f_nequals(t_vec2f * left, t_vec2f * right);
 
+/** hash */
+int vec2f_hash(t_vec2f * vec);
+
 /** round vec2f */
 t_vec2f * vec2f_round(t_vec2f * dst, t_vec2f * vec, int decimals);
 

@@ -171,6 +171,10 @@ int vec2i_nequals(t_vec2i * left, t_vec2i * right) {
 	return (!vec2i_equals(left, right));
 }
 
+/** hash */
+int vec2i_hash(t_vec2i * vec) {
+	return ((vec->x * 73856093) ^ (vec->y * 19349663));
+}
 
 /** to string: return a string allocated with malloc() */
 char * vec2i_str(t_vec2i * vec) {
