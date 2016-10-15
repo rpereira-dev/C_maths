@@ -189,6 +189,10 @@ int vec3i_equals(t_vec3i * left, t_vec3i * right) {
 	return (left == right || (left->x == right->x && left->y == right->y && left->z == right->z));
 }
 
+int vec3i_nequals(t_vec3i * left, t_vec3i * right) {
+	return (!vec3i_equals(left, right));
+}
+
 /** to string: return a string allocated with malloc() */
 char * vec3i_str(t_vec3i * vec) {
 	if (vec == NULL) {

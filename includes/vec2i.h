@@ -15,8 +15,7 @@
 # include <string.h>
 # include <stdio.h>
 
-typedef struct	s_vec2i
-{
+typedef struct	s_vec2i {
 	union {
 		int x;
 		int uvx;
@@ -72,6 +71,7 @@ t_vec2i * vec2i_mix(t_vec2i * dst, t_vec2i * left, t_vec2i * right, int ratio);
 
 /** comparison */
 int vec2i_equals(t_vec2i * left, t_vec2i * right);
+int vec2i_nequals(t_vec2i * left, t_vec2i * right);
 
 /** to string: return a string allocated with malloc() */
 char * vec2i_str(t_vec2i * vec);

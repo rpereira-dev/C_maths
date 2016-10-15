@@ -184,6 +184,10 @@ int vec4i_equals(t_vec4i * left, t_vec4i * right) {
 	return (left == right || (left->x == right->x && left->y == right->y && left->z == right->z && left->w == right->w));
 }
 
+int vec4i_nequals(t_vec4i * left, t_vec4i * right) {
+	return (!vec4i_equals(left, right));
+}
+
 /** to string: return a string allocated with malloc() */
 char * vec4i_str(t_vec4i * vec) {
 	if (vec == NULL) {

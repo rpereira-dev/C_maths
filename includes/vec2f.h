@@ -15,8 +15,7 @@
 # include <string.h>
 # include <stdio.h>
 
-typedef struct	s_vec2f
-{
+typedef struct	s_vec2f {
 	union {
 		float x;
 		float uvx;
@@ -72,6 +71,7 @@ t_vec2f * vec2f_mix(t_vec2f * dst, t_vec2f * left, t_vec2f * right, float ratio)
 
 /** comparison */
 int vec2f_equals(t_vec2f * left, t_vec2f * right);
+int vec2f_nequals(t_vec2f * left, t_vec2f * right);
 
 /** round vec2f */
 t_vec2f * vec2f_round(t_vec2f * dst, t_vec2f * vec, int decimals);

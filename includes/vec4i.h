@@ -15,8 +15,7 @@
 # include <string.h>
 # include <stdio.h>
 
-typedef struct	s_vec4i
-{
+typedef struct	s_vec4i {
 	union {
 		int x;
 		int r;
@@ -82,6 +81,7 @@ t_vec4i * vec4i_mix(t_vec4i * dst, t_vec4i * left, t_vec4i * right, int ratio);
 
 /** comparison */
 int vec4i_equals(t_vec4i * left, t_vec4i * right);
+int vec4i_nequals(t_vec4i * left, t_vec4i * right);
 
 /** to string: return a string allocated with malloc() */
 char * vec4i_str(t_vec4i * vec);

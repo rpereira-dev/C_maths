@@ -189,6 +189,11 @@ int vec3f_equals(t_vec3f * left, t_vec3f * right) {
 	return (left == right || (left->x == right->x && left->y == right->y && left->z == right->z));
 }
 
+int vec3f_nequals(t_vec3f * left, t_vec3f * right) {
+	return (!vec3f_equals(left, right));
+}
+
+
 /** round vec3f */
 t_vec3f * vec3f_round(t_vec3f * dst, t_vec3f * vec, int decimals) {
 	static float powten[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};

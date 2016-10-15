@@ -167,6 +167,11 @@ int vec2i_equals(t_vec2i * left, t_vec2i * right) {
 	return (left == right || (left->x == right->x && left->y == right->y));
 }
 
+int vec2i_nequals(t_vec2i * left, t_vec2i * right) {
+	return (!vec2i_equals(left, right));
+}
+
+
 /** to string: return a string allocated with malloc() */
 char * vec2i_str(t_vec2i * vec) {
 	if (vec == NULL) {
