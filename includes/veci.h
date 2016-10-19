@@ -10,6 +10,7 @@
 #ifndef VECI_H
 # define VECI_H
 
+# include "cmaths.h"
 # include "vec2i.h"
 # include "vec3i.h"
 # include "vec4i.h"

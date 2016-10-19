@@ -9,11 +9,8 @@
 
 #ifndef VEC4I_H
 # define VEC4I_H
-
-# include <math.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdio.h>
+ 
+# include "cmaths.h"
 
 typedef struct	s_vec4i {
 	union {

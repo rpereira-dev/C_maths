@@ -10,6 +10,7 @@
 #ifndef VECF_H
 # define VECF_H
 
+# include "cmaths.h"
 # include "vec2f.h"
 # include "vec3f.h"
 # include "vec4f.h"

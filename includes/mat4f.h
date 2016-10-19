@@ -10,11 +10,8 @@
 #ifndef MAT4F_H
 # define MAT4F_H
 
-# include <math.h>
-# include <stdlib.h>
-# include <string.h>
-# include "vec3f.h"
-# include "vec4f.h"
+# include "cmaths.h"
+# include "vec.h"
 
 typedef struct	s_mat4f {
 	float m00;

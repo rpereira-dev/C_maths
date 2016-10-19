@@ -12,22 +12,5 @@
 
 # include "vecf.h"
 # include "veci.h"
-# include "matf.h"
-
-# ifndef DEG_TO_RAD
-#  define DEG_TO_RAD(X) (X * 0.01745329251f)
-# endif
-
-# ifndef MAX
-#  define MAX(X, Y) (X > Y ? X : Y)
-# endif
-
-# ifndef MIN
-#  define MIN(X, Y) (X < Y ? X : Y)
-# endif
-
-# ifndef ABS
-#  define ABS(X) (X < 0 ? -X : X)
-# endif
 
 #endif

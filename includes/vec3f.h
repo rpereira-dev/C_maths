@@ -10,10 +10,7 @@
 #ifndef VEC3F_H
 # define VEC3F_H
 
-# include <math.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdio.h>
+# include "cmaths.h"
 
 typedef struct	s_vec3f {
 	union {

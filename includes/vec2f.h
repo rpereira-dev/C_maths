@@ -10,10 +10,7 @@
 #ifndef VEC2F_H
 # define VEC2F_H
 
-# include <math.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdio.h>
+# include "cmaths.h"
 
 typedef struct	s_vec2f {
 	union {

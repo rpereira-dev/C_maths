@@ -4,7 +4,7 @@ SRCS = $(wildcard ./srcs/*.c)
 
 OBJ	= $(SRCS:.c=.o)
 INC	= -I ./includes
-FLAGS	= -Wall -Werror -Wextra -Wconversion -Ofast
+FLAGS	= -Wall -Werror -Wextra -Wconversion -Ofast -fno-strict-aliasing
 
 all: $(NAME)
 

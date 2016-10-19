@@ -7,9 +7,10 @@
  *  PEREIRA Romain
  */
 
-#ifndef MATF_H
-# define MATF_H
+#ifndef MAT_H
+# define MAT_H
 
+# include "cmaths.h"
 # include "mat4f.h"
  
 #endif
