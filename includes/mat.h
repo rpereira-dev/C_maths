@@ -12,5 +12,6 @@
 
 # include "cmaths.h"
 # include "mat4f.h"
+# include "matrix.h"
  
 #endif
