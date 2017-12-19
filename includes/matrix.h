@@ -20,6 +20,11 @@ typedef struct  s_matrix {
 }               t_matrix;
 
 /**
+ * set the matrix to zero
+ */
+void matrix_zeros(t_matrix * mat);
+
+/**
  *  create a new matrix
  */
 t_matrix * matrix_new(size_t n, size_t m);

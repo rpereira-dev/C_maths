@@ -1,6 +1,13 @@
 #include "matrix.h"
 
 /**
+ * set the matrix to zero
+ */
+void matrix_zeros(t_matrix * mat) {
+	memset(mat + 1, 0, sizeof(T) * mat->n * mat->m);
+}
+
+/**
  *  create a new matrix
  */
 t_matrix * matrix_new(size_t n, size_t m) {
@@ -10,7 +17,8 @@ t_matrix * matrix_new(size_t n, size_t m) {
 	}
 	matrix->n = n;
 	matrix->m = m;
-	matrix_identity(matrix);
+/* 	not set to zero intentionally!*/
+/*	matrix_zeros(matrix);*/
 	return (matrix);
 }
 
